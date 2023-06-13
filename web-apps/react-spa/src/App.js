@@ -2,6 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const apiUrl = window.config.apiUrl;
+    const enableNewFeature = window.config.featureFlags.enableNewFeature;
+    const enableExperimentalFeature = window.config.featureFlags.enableExperimentalFeature;
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +22,11 @@ function App() {
           Learn React
         </a>
       </header>
+      <body>
+            <label>API URL: apiUrl</label> <br />
+            <label> enable New Feature: enableNewFeature </label><br />
+            <label> Enable Experiment Feature: enableExperimentalFeature </label><br />
+      </body>
     </div>
   );
 }
