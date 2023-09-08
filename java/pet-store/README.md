@@ -1,13 +1,15 @@
-# Choreo Sample Node.js REST API - Reading List
+# Swagger Petstore Sample
+
+This is the java project for a simplified version of the [pet store sample](https://github.com/swagger-api/swagger-petstore) hosted at https://petstore3.swagger.io.
 
 ## Repository File Structure
 
 The below table gives a brief overview of the important files in the service.\
-Note: The following file paths are relative to the path /nodejs/rest-api/
+Note: The following file paths are relative to the path /java/pet-store/
 
 | Filepath               | Description                                                                                                                                                  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| app.mjs                | The Node.js(JavaScript) based service code.                                                                                                                  |
+| src/main               | The Java based service code.                                                                                                                                 |
 | Dockerfile             | Choreo uses the Dockerfile to build the container image of the application.                                                                                  |
 | .choreo/endpoints.yaml | Choreo-specific configuration that provides information about how Choreo exposes the service.                                                                |
 | openapi.yaml           | OpenAPI contract of the service. This is needed to publish our service as a managed API. This openapi.yaml file is referenced by the .choreo/endpoints.yaml. |
@@ -16,24 +18,21 @@ Note: The following file paths are relative to the path /nodejs/rest-api/
 
 Please refer to the Choreo documentation under the [Develop a REST API](https://wso2.com/choreo/docs/develop-components/develop-services/develop-a-rest-api/#step-1-create-a-service-component-from-a-dockerfile) section to learn how to deploy the application.
 
-### Use the following configuration when creating this component in Choreo:
+## Use the following build config when creating this component in Choreo:
 
 - Build Preset: **Dockerfile**
-- Dockerfile Path: `nodejs/rest-api/Dockerfile`
-- Docker Context Path: `nodejs/rest-api`
+- Dockerfile Path: `java/pet-store/Dockerfile`
+- Docker Context Path: `java/pet-store`
 
 The [endpoints.yaml](.choreo/endpoints.yaml) file contains the endpoint configurations that are used by the Choreo to expose the service.
 
-## Execute the Sample Locally
 
-Navigate to the Node.js application directory
+### Execute the sample locally
+Navigate to the Java application directory.
+To run the server, run this command:
 
-```bash
-cd choreo-sample-apps/nodejs/rest-api
+```
+mvn package jetty:run
 ```
 
-Run the service
-
-```bash
-npm install && node index.mjs
-```
+This will start Jetty embedded on port 8080.
